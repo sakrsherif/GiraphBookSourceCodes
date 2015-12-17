@@ -1,9 +1,9 @@
-package example.aggregator;
+package example.dataSharing;
 
 import org.apache.giraph.aggregators.Aggregator;
 import org.apache.hadoop.io.LongWritable;
 
-public class simpleAggregator implements Aggregator<LongWritable> {
+public class simpleSUMAggregator implements Aggregator<LongWritable> {
 
 	LongWritable myValue;
 

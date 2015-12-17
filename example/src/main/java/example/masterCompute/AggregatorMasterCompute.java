@@ -5,7 +5,7 @@ package example.masterCompute;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
-import example.aggregator.simpleAggregator;
+import example.dataSharing.simpleSUMAggregator;
 import org.apache.giraph.master.MasterCompute;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -18,7 +18,7 @@ public class AggregatorMasterCompute extends MasterCompute {
 
 	public AggregatorMasterCompute() {
 		this.agg1 = new Text("SumAgg");
-		this.agg2 = new Text("SumAgg");
+		this.agg2 = new Text("PersSumAgg");
 	}
 
 	@Override
@@ -27,9 +27,9 @@ public class AggregatorMasterCompute extends MasterCompute {
 		// or to initialize other objects
 
 		// Normal Aggregator
-		registerAggregator(agg1.toString(), simpleAggregator.class);
+		registerAggregator(agg1.toString(), simpleSUMAggregator.class);
 		// Persistent Aggregator
-		registerPersistentAggregator(agg2.toString(), simpleAggregator.class);
+		registerPersistentAggregator(agg2.toString(), simpleSUMAggregator.class);
 	}
 
 	@Override
@@ -41,9 +41,9 @@ public class AggregatorMasterCompute extends MasterCompute {
 			setAggregatedValue(agg2.toString(), new LongWritable(getTotalNumVertices()));
 		} else {
 			// If not first superstep, get aggregator value for "SumAgg",
-			// compare it with "SumAggPer", halt if all aggregators used
+			// compare it with "PersSumAgg", halt if all aggregators used
 			// aggregator "SumAgg" or otherwise assign a new value for aggregaor
-			// "SumAggPer"
+			// "PersSumAgg"
 			long workerAgg = ((LongWritable) getAggregatedValue(agg1.toString())).get();
 			long lastPerAgg = ((LongWritable) getAggregatedValue(agg2.toString())).get();
 			if (lastPerAgg <= workerAgg) {
