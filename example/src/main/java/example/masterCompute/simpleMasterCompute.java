@@ -9,18 +9,19 @@ import org.apache.giraph.master.MasterCompute;
 public class simpleMasterCompute extends MasterCompute {
 
 	@Override
-	public void compute() {
-		//MasterCompute body
-		long ssID = getSuperstep();
-		long vCnt = getTotalNumVertices();
-		if(ssID > vCnt){
-			haltComputation();
-		}
-	}
-	@Override
 	public void initialize() throws InstantiationException, IllegalAccessException {
 		// Initialization phase, used to initialize aggregator/Reduce/Broadcast
 		// or to initialize other objects
+	}
+
+	@Override
+	public void compute() {
+		// MasterCompute body
+		long ssID = getSuperstep();
+		long vCnt = getTotalNumVertices();
+		if (ssID > vCnt) {
+			haltComputation();
+		}
 	}
 
 	public void readFields(DataInput arg0) throws IOException {
