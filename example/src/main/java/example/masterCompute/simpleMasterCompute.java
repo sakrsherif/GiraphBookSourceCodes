@@ -1,3 +1,5 @@
+//Example of implementing the simplest MasterCompute class
+
 package example.masterCompute;
 
 import java.io.DataInput;
@@ -25,10 +27,10 @@ public class simpleMasterCompute extends MasterCompute {
 	}
 
 	public void readFields(DataInput arg0) throws IOException {
-		// To serialize this class fields (global variables) if any
+		// To deserialize this class fields (global variables) if any
 	}
 
 	public void write(DataOutput arg0) throws IOException {
-		// To deserialize this class fields (global variables) if any
+		// To serialize this class fields (global variables) if any
 	}
 }
