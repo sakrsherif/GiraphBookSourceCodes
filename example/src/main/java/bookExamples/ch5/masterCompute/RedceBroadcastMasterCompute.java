@@ -1,11 +1,11 @@
 //Dummy example of how to use Reduce and Broadcast in MasterCompute
 
-package example.masterCompute;
+package bookExamples.ch5.masterCompute;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
-import example.dataSharing.simpleSUMReduce;
+import bookExamples.ch5.dataSharing.simpleSUMReduce;
 
 import org.apache.giraph.master.MasterCompute;
 import org.apache.hadoop.io.LongWritable;

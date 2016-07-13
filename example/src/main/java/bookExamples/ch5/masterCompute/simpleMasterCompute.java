@@ -1,6 +1,6 @@
 //Example of implementing the simplest MasterCompute class
 
-package example.masterCompute;
+package bookExamples.ch5.masterCompute;
 
 import java.io.DataInput;
 import java.io.DataOutput;

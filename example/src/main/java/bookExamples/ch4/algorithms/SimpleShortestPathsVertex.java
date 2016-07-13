@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.apache.giraph.examples;
+package bookExamples.ch4.algorithms;
 
 import org.apache.giraph.conf.LongConfOption;
 import org.apache.giraph.edge.Edge;
