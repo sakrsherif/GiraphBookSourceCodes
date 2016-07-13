@@ -1,11 +1,11 @@
 //Dummy example of how to use aggregator and persistent aggregator in MasterCompute
 
-package example.masterCompute;
+package bookExamples.ch5.masterCompute;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
-import example.dataSharing.simpleSUMAggregator;
+import bookExamples.ch5.dataSharing.simpleSUMAggregator;
 import org.apache.giraph.master.MasterCompute;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;

@@ -1,4 +1,4 @@
-package example.dataSharing;
+package bookExamples.ch5.dataSharing;
 
 import org.apache.giraph.aggregators.Aggregator;
 import org.apache.hadoop.io.LongWritable;

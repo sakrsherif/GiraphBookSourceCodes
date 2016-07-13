@@ -16,9 +16,7 @@
  * limitations under the License.
  */
 
-package org.apache.giraph.examples;
-
-package org.apache.giraph.examples;
+package bookExamples.ch4.algorithms;
 
 import org.apache.giraph.graph.BasicComputation;
 import org.apache.giraph.conf.LongConfOption;
@@ -27,6 +25,7 @@ import org.apache.giraph.graph.Vertex;
 import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.log4j.Logger;
 
 
@@ -35,8 +34,8 @@ public class PageRankVertexComputation extends BasicComputation<
 
   public static final int MAX_SUPERSTEPS = 2;
 
-
-  public void compute(Vertex<LongWritable, DoubleWritable, FloatWritable> vertex,
+  @Override 	
+  public void compute(Vertex<LongWritable, DoubleWritable, NullWritable, DoubleWritable> vertex,
       Iterable<DoubleWritable> messages) throws IOException {
 
     if (getSuperstep() >= 1) {

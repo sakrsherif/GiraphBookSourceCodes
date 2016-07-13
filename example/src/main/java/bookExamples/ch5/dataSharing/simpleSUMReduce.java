@@ -1,4 +1,4 @@
-package example.dataSharing;
+package bookExamples.ch5.dataSharing;
 
 import java.io.DataInput;
 import java.io.DataOutput;
