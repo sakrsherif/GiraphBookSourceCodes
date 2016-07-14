@@ -3,7 +3,7 @@ The projects can be opened in their respective IDEs (reflected in the name of th
 Following is the short description of each of the projects:
 
 #### GiraphDemoRunnerEclipseNoMaven
-The project has all the dependencies required and can be run without any modification as the dependency jars are included in project. 
+The project has all the dependencies required and can be run without any modification as the dependency jars are included in project. It uses Giraph version 1.1.0 with Hadoop 1.2.1.
 Following is the description of each of its directories
 
 * The ```input``` folder contains the input graph
@@ -17,7 +17,7 @@ Before running the project again, delete the ```graph_out``` folder.
 * The ```_bsp``` folder contains the data and configuration of the local Zookeeper instance that Girah runs in the local mode.
 
 #### GiraphDemoRunnerEclipseMaven
-The project requires the internet to download all the dependencies.
+The project requires the internet to download all the dependencies. It uses Giraph version 1.1.0 with Hadoop 2.5.1.
 
 * The ```input``` folder contains the input graph
 * The ```src``` folder contains the Java source file
@@ -35,7 +35,7 @@ This will compile the project. After this, you can right click on the ```GiraphD
 window and choose ```Run As-->Java Application```.
 
 #### GiraphDemoRunnerIntellijNoMaven
-This intelliJ project does not use maven for managing project dependencies and is not configured to point to the dependencies.
+This intelliJ project does not use maven for managing project dependencies and is not configured to point to the dependencies. It uses Giraph version 1.1.0 with Hadoop 1.2.1.
 Follow chapter 2 of the book to see how to add jar files as dependencies. 
 Downloading Giraph or Hadoop is not required as all the jar files are located in the ```lib``` folder and can be added using the project structure window.
 
@@ -50,7 +50,7 @@ Before running the project again, delete the ```graph_out``` folder located insi
 
 
 #### GiraphDemoRunnerIntellijMaven
-The project requires the internet to download all the dependencies. 
+The project requires the internet to download all the dependencies. It uses Giraph version 1.1.0 with Hadoop 2.5.1.
 Right-click on the ```GiraphDemoRunner.java``` file in project explorer window and choose ```Run```.
 
 Following is the directory structure of the project:
