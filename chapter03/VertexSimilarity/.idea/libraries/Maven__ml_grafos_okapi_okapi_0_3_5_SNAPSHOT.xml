@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Maven: ml.grafos.okapi:okapi:0.3.5-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/ml/grafos/okapi/okapi/0.3.5-SNAPSHOT/okapi-0.3.5-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/ml/grafos/okapi/okapi/0.3.5-SNAPSHOT/okapi-0.3.5-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/ml/grafos/okapi/okapi/0.3.5-SNAPSHOT/okapi-0.3.5-SNAPSHOT-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/../okapi/src/main/java" />
+    </SOURCES>
+  </library>
+</component>

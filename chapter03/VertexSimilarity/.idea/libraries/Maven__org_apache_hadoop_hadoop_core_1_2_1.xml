@@ -1,0 +1,44 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.hadoop:hadoop-core:1.2.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-core/1.2.1/hadoop-core-1.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-core/1.2.1/hadoop-core-1.2.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/hadoop/hadoop-core/1.2.1/hadoop-core-1.2.1-sources.jar!/" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/ant" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/benchmarks/gridmix2/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/capacity-scheduler/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/capacity-scheduler/src/test" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/data_join/src/examples" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/data_join/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/data_join/src/test" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/eclipse-plugin/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/failmon/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/fairscheduler/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/fairscheduler/src/test" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/fuse-dfs/src/test" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/gridmix/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/gridmix/src/test" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/hdfsproxy/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/hdfsproxy/src/test" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/index/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/index/src/test" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/streaming/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/streaming/src/test" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/thriftfs/gen-java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/thriftfs/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/thriftfs/test" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/contrib/vaidya/src/java" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/core" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/examples" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/hdfs" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/mapred" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/test" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/test/aop" />
+      <root url="file://$USER_HOME$/installed/hadoop-1.2.1-src/src/tools" />
+    </SOURCES>
+  </library>
+</component>
