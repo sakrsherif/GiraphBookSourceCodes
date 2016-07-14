@@ -31,5 +31,4 @@ public class SUMAggregator implements Aggregator<LongWritable> {
 			myValue.set(0);
 		}
 	}
-
 }

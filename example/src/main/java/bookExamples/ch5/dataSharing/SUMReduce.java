@@ -28,5 +28,4 @@ public class SUMReduce implements ReduceOperation<Long, LongWritable> {
 	public LongWritable reducePartial(LongWritable curValue, LongWritable valueToReduce) {
 		return new LongWritable(curValue.get() + valueToReduce.get());
 	}
-
 }
