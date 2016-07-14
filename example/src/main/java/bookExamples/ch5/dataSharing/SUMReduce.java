@@ -7,7 +7,7 @@ import java.io.IOException;
 import org.apache.giraph.reducers.ReduceOperation;
 import org.apache.hadoop.io.LongWritable;
 
-public class simpleSUMReduce implements ReduceOperation<Long, LongWritable> {
+public class SUMReduce implements ReduceOperation<Long, LongWritable> {
 
 	public void readFields(DataInput arg0) throws IOException {
 		// To deserialize this class fields (global variables) if any

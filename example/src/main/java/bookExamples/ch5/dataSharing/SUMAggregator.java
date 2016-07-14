@@ -3,7 +3,7 @@ package bookExamples.ch5.dataSharing;
 import org.apache.giraph.aggregators.Aggregator;
 import org.apache.hadoop.io.LongWritable;
 
-public class simpleSUMAggregator implements Aggregator<LongWritable> {
+public class SUMAggregator implements Aggregator<LongWritable> {
 
 	LongWritable myValue;
 
