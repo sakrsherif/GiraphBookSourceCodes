@@ -19,8 +19,8 @@ public class GiraphDemoRunner implements Tool{
     }
 
     public int run(String[] arg0) throws Exception {
-        String inputPath="input/tiny_graph.txt";
-        String outputPath="output/graph_out";
+        String inputPath="src/main/resources/input/tiny_graph.txt";
+        String outputPath="src/main/resources/output/graph_out";
         GiraphConfiguration giraphConf = new GiraphConfiguration(getConf());
         giraphConf.setComputationClass(SimpleShortestPathsComputation.class);
         giraphConf.setVertexInputFormatClass(JsonLongDoubleFloatDoubleVertexInputFormat.class);
