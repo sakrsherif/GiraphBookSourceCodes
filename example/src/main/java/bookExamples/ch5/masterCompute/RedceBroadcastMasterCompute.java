@@ -5,7 +5,7 @@ package bookExamples.ch5.masterCompute;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
-import bookExamples.ch5.dataSharing.simpleSUMReduce;
+import bookExamples.ch5.dataSharing.SUMReduce;
 
 import org.apache.giraph.master.MasterCompute;
 import org.apache.hadoop.io.LongWritable;
@@ -18,7 +18,7 @@ public class RedceBroadcastMasterCompute extends MasterCompute {
 		// or to initialize other objects
 
 		broadcast("TotalNodes", new LongWritable(getTotalNumVertices()));
-		registerReduce("SumReduce", new simpleSUMReduce());
+		registerReduce("SumReduce", new SUMReduce());
 	}
 
 	@Override

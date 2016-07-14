@@ -5,7 +5,7 @@ package bookExamples.ch5.masterCompute;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
-import bookExamples.ch5.dataSharing.simpleSUMAggregator;
+import bookExamples.ch5.dataSharing.SUMAggregator;
 import org.apache.giraph.master.MasterCompute;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -27,9 +27,9 @@ public class AggregatorMasterCompute extends MasterCompute {
 		// or to initialize other objects
 
 		// Normal Aggregator
-		registerAggregator(agg1.toString(), simpleSUMAggregator.class);
+		registerAggregator(agg1.toString(), SUMAggregator.class);
 		// Persistent Aggregator
-		registerPersistentAggregator(agg2.toString(), simpleSUMAggregator.class);
+		registerPersistentAggregator(agg2.toString(), SUMAggregator.class);
 	}
 
 	@Override
