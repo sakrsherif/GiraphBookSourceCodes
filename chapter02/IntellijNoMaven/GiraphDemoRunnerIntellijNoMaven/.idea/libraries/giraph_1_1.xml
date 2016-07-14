@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="giraph-1.1">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/lib/giraph-1.1.0" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/lib/giraph-1.1.0" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/lib/giraph-1.1.0" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/lib/giraph-1.1.0" recursive="false" type="SOURCES" />
+  </library>
+</component>
