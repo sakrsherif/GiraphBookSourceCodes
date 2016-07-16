@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 import org.apache.giraph.Algorithm;
+import org.apache.giraph.edge.Edge;
 import org.apache.giraph.edge.EdgeFactory;
 import org.apache.giraph.graph.BasicComputation;
 import org.apache.giraph.graph.Vertex;
@@ -33,15 +34,15 @@ public class GraphColoring extends
 		LongWritable myVertexID = vertex.getId();
 		if (ss == 0) {
 			Text outMessage = new Text(myVertexID.get() + "");
-			super.sendMessageToAllEdges(vertex, outMessage);
+			super.sendMessageToAllEdges(vertex, outMessage);	
 		}
-		// store nbr IDs
+		// get nbr IDs
 		else if (ss == 1) {		
 			Iterator<Text> msgIterator = messages.iterator();
 			while (msgIterator.hasNext()) {
 				LongWritable removeVertexID = new LongWritable(
 						Long.parseLong(msgIterator.next().toString()));
-				super.addEdgeRequest(removeVertexID,EdgeFactory.create(myVertexID, new Text()));
+				vertex.addEdge(EdgeFactory.create(removeVertexID, new Text()));
 			}
 			myColor = 0;
 			super.sendMessageToAllEdges(vertex, new Text(myColor + ""));
