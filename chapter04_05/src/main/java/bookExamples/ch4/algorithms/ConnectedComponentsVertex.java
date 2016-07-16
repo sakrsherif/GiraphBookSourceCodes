@@ -18,10 +18,12 @@
 
 package bookExamples.ch4.algorithms;
 
+import org.apache.giraph.graph.BasicComputation;
 import org.apache.giraph.edge.Edge;
 import org.apache.giraph.graph.Vertex;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.NullWritable;
+import org.apache.giraph.Algorithm;
 
 import java.io.IOException;
 
@@ -45,39 +47,42 @@ import java.io.IOException;
     name = "Connected components",
     description = "Finds connected components of the graph"
 )
-public class ConnectedComponentsVertex extends Vertex<IntWritable,
-    IntWritable, NullWritable, IntWritable> {
+public class ConnectedComponentsVertex extends
+    BasicComputation<IntWritable, IntWritable, NullWritable, IntWritable> {
   /**
    * Propagates the smallest vertex id to all neighbors. Will always choose to
    * halt and only reactivate if a smaller id has been sent to it.
    *
+   * @param vertex Vertex
    * @param messages Iterator of messages from the previous superstep.
    * @throws IOException
    */
   @Override
-  public void compute(Iterable<IntWritable> messages) throws IOException {
-    int currentComponent = getValue().get();
+  public void compute(
+      Vertex<IntWritable, IntWritable, NullWritable> vertex,
+      Iterable<IntWritable> messages) throws IOException {
+    int currentComponent = vertex.getValue().get();
 
     // First superstep is special, because we can simply look at the neighbors
     if (getSuperstep() == 0) {
-      for (Edge<IntWritable, NullWritable> edge : getEdges()) {
+      for (Edge<IntWritable, NullWritable> edge : vertex.getEdges()) {
         int neighbor = edge.getTargetVertexId().get();
         if (neighbor < currentComponent) {
           currentComponent = neighbor;
         }
       }
       // Only need to send value if it is not the own id
-      if (currentComponent != getValue().get()) {
-        setValue(new IntWritable(currentComponent));
-        for (Edge<IntWritable, NullWritable> edge : getEdges()) {
+      if (currentComponent != vertex.getValue().get()) {
+        vertex.setValue(new IntWritable(currentComponent));
+        for (Edge<IntWritable, NullWritable> edge : vertex.getEdges()) {
           IntWritable neighbor = edge.getTargetVertexId();
           if (neighbor.get() > currentComponent) {
-            sendMessage(neighbor, getValue());
+            sendMessage(neighbor, vertex.getValue());
           }
         }
       }
 
-      voteToHalt();
+      vertex.voteToHalt();
       return;
     }
 
@@ -93,9 +98,9 @@ public class ConnectedComponentsVertex extends Vertex<IntWritable,
 
     // propagate new component id to the neighbors
     if (changed) {
-      setValue(new IntWritable(currentComponent));
-      sendMessageToAllEdges(getValue());
+      vertex.setValue(new IntWritable(currentComponent));
+      sendMessageToAllEdges(vertex, vertex.getValue());
     }
-    voteToHalt();
+    vertex.voteToHalt();
   }
 }

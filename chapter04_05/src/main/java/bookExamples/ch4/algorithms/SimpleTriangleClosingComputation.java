@@ -18,15 +18,18 @@
 
 package bookExamples.ch4.algorithms;
 
+import org.apache.giraph.graph.BasicComputation;
 import org.apache.giraph.edge.Edge;
 import org.apache.giraph.utils.ArrayListWritable;
 import org.apache.giraph.graph.Vertex;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.NullWritable;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
+import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 
@@ -61,19 +64,21 @@ import java.util.Set;
  * adapted to represent additional qualities that could affect the
  * ordering of the final result array.
  */
-public class SimpleTriangleClosingVertex extends Vertex<
-  IntWritable, SimpleTriangleClosingVertex.IntArrayListWritable,
+public class SimpleTriangleClosingComputation extends BasicComputation<
+  IntWritable, SimpleTriangleClosingComputation.IntArrayListWritable,
   NullWritable, IntWritable> {
   /** Vertices to close the triangle, ranked by frequency of in-msgs */
   private Map<IntWritable, Integer> closeMap =
     Maps.<IntWritable, Integer>newHashMap();
 
   @Override
-  public void compute(Iterable<IntWritable> messages) {
+  public void compute(
+      Vertex<IntWritable, IntArrayListWritable, NullWritable> vertex,
+      Iterable<IntWritable> messages) throws IOException {
     if (getSuperstep() == 0) {
       // send list of this vertex's neighbors to all neighbors
-      for (Edge<IntWritable, NullWritable> edge : getEdges()) {
-        sendMessageToAllEdges(edge.getTargetVertexId());
+      for (Edge<IntWritable, NullWritable> edge : vertex.getEdges()) {
+        sendMessageToAllEdges(vertex, edge.getTargetVertexId());
       }
     } else {
       for (IntWritable message : messages) {
@@ -83,23 +88,22 @@ public class SimpleTriangleClosingVertex extends Vertex<
       }
       // make sure the result values are sorted and
       // packaged in an IntArrayListWritable for output
-      Set<SimpleTriangleClosingVertex.Pair> sortedResults =
-        Sets.<SimpleTriangleClosingVertex.Pair>newTreeSet();
+      Set<Pair> sortedResults = Sets.<Pair>newTreeSet();
       for (Map.Entry<IntWritable, Integer> entry : closeMap.entrySet()) {
         sortedResults.add(new Pair(entry.getKey(), entry.getValue()));
       }
-      SimpleTriangleClosingVertex.IntArrayListWritable
-        outputList = new SimpleTriangleClosingVertex.IntArrayListWritable();
-      for (SimpleTriangleClosingVertex.Pair pair : sortedResults) {
+      IntArrayListWritable
+        outputList = new IntArrayListWritable();
+      for (Pair pair : sortedResults) {
         if (pair.value > 0) {
           outputList.add(pair.key);
         } else {
           break;
         }
       }
-      setValue(outputList);
+      vertex.setValue(outputList);
     }
-    voteToHalt();
+    vertex.voteToHalt();
   }
 
   /** Quick, immutable K,V storage for sorting in tree set */
@@ -130,6 +134,23 @@ public class SimpleTriangleClosingVertex extends Vertex<
     @Override
     public int compareTo(Pair other) {
       return other.value - this.value;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      if (this == obj) {
+        return true;
+      }
+      if (obj instanceof Pair) {
+        Pair other = (Pair) obj;
+        return Objects.equal(value, other.value);
+      }
+      return false;
+    }
+
+    @Override
+    public int hashCode() {
+      return Objects.hashCode(value);
     }
   }
 
